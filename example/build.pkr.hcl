@@ -24,6 +24,12 @@ build {
       # Add the SSH public key to authorized_keys
       # use "tee -a" to append text as super user
       "echo \"${var.ssh_public_key}\" | sudo tee -a .ssh/authorized_keys",
+      # Add vagrant insecure keys
+      "echo \"${var.vagrant_pub_rsa}\" | sudo tee -a .ssh/authorized_keys",
+      "echo \"${var.vagrant_pub_ed25519}\" | sudo tee -a .ssh/authorized_keys",
+
+      # enable password-less Sudo
+      "echo 'vagrant ALL=(ALL) NOPASSWD: ALL' | sudo tee -a /etc/sudoers",
     ]
   }
 }
