@@ -108,3 +108,7 @@ variable "vm_headless" {
   default = true
 }
 
+variable "ssh_public_key" {
+  type = string
+  default = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID3eJ5tPwQJdJJum82Q9EP7hF2S0wVCrptTV6p5Fh7R7 sloanetribble@admins-MacBook-Pro.local"
+}
