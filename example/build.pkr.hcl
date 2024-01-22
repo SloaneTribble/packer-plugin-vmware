@@ -13,4 +13,17 @@ packer {
 
 build {
   sources = ["source.vmware-iso.debian"]
+
+  provisioner "shell" {
+    inline = [
+      # Upgrade debian
+      "sudo apt-get update && sudo apt-get upgrade",
+      # Create the .ssh directory if it doesn't exist
+      # Username declared as "vagrant" in pkrvars -- access from variables file instead?
+      "sudo mkdir .ssh",
+      # Add the SSH public key to authorized_keys
+      # use "tee -a" to append text as super user
+      "echo \"${var.ssh_public_key}\" | sudo tee -a .ssh/authorized_keys",
+    ]
+  }
 }
