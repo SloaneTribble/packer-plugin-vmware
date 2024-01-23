@@ -122,3 +122,16 @@ variable "vagrant_pub_ed25519" {
   type = string
   default = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN1YdxBpNlzxDqfJyw/QKow1F+wvG9hXGoqiysfJOn5Y vagrant insecure public key"
 }
+
+variable "bookworm_sources" {
+  type    = 
+  default = [
+    "deb http://deb.debian.org/debian bookworm main",
+    "deb-src http://deb.debian.org/debian bookworm main",
+    "deb http://deb.debian.org/debian-security/ bookworm-security main",
+    "deb-src http://deb.debian.org/debian-security/ bookworm-security main",
+    "deb http://deb.debian.org/debian bookworm-updates main",
+    "deb-src http://deb.debian.org/debian bookworm-updates main",
+  ]
+}
+
